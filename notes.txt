@@ -1,0 +1,28 @@
+styleGAN
+- starts from a learned constant input, and applies/adjusts the styles at each convolutional layer based on the "latent code"; thereby controlling feature strength ot differing scales
+- sdfg
+
+
+Latent Space:
+- "representation of compressed data"
+- latent means hidden, in the way that a digit classifier recognizes the structure of the image in a hidden or "latent" manner
+- in an FCN, convolutional autoencoder, for example, each layer learns and reduces the datapoint; thereby ending with a "latent space representation", ie the fully encoded vector
+- the "space" being refered to is the span of the fully encoded vector
+    - ie if the latent space representation is a 3x1 vector, then the latent space is 3d space
+- latent space can be tensors (matricies) instead of vectors, making it a tensor space
+- in the process of creating a latent space, only the most important features are encoded by the encoded vector, meaning the model "learns" the most important features of the datapoints
+- space between data points can be measured with euclidean metrics, and the groupings/hyperplanes of datapoints within the latent space is how the model classifies data points
+- latent space is a concept of manifold learning, a subfield of representation learning
+- manifolds are "groups" or subsets in higher dimensonal space that "similar"/close together in latent space
+- autoencoders manipulate the "closeness" of data in the latent space
+- patterns can be seen in latent space (eg through PCA)
+- interpolation of the latent space is the sampling of the space between known datapoints
+- feeding interpolated points to the decoder will result in a uniquely generated output between the known data points, sharing similar features as denoted by the latent space
+
+GANs and autoencoders:
+- both are generative models (learns data distrobution vs density)
+- the Descriminator measures the distance between the generated output and the real data
+    - thereby distingiushing generated data from real data
+- the output of the descriminator (0 for fake, 1 for real), is used as the error function for the generator
+- the generator learns p(x, y) (probability of x and y), learns about the data distrobution
+- the descriminator learns p(y | x) (probability of y given x)
